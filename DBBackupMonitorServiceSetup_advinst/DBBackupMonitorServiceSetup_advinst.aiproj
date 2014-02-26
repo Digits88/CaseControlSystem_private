@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">All</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>5010aa4d-1c4e-4271-ba3d-5dcf1410cde4</ProjectGuid>
+    <OutputType>msi</OutputType>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>DBBackupMonitorServiceSetup_advinst.aip</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <IsWindowsApplication>True</IsWindowsApplication>
+    <AssemblyName>DBBackupMonitorServiceSetup_advinst</AssemblyName>
+    <Name>DBBackupMonitorServiceSetup_advinst</Name>
+    <RootNamespace>DBBackupMonitorServiceSetup_advinst</RootNamespace>
+    <ImportedProject>{938037da-49e3-4b0d-9acf-45d5e1412b57}</ImportedProject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'All' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>msi\</OutputPath>
+    <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' " />
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' " />
+  <ItemGroup>
+    <Compile Include="DBBackupMonitorServiceSetup_advinst.aip">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Target Name="Build">
+    <!--Create the output directory-->
+    <!-- <MakeDir Directories="$(OutputPath)"  Condition="!Exists('$(OutputPath)')" /> -->
+    <!-- Run the advanced installer on the .aip project - build -->
+    <!-- Path to the Advanced Installer version used to build .aip is specified in the registry HKEY_CURRENT_USER\SOFTWARE\Caphyon\Advanced Installer\Extension for VS -->
+    <Exec Command="&quot;$(AiComPath)&quot; /build &quot;%(Compile.Identity)&quot; $(AdvinstCmdLine)" />
+  </Target>
+  <Target Name="Rebuild">
+    <!--Create the output directory-->
+    <!-- MakeDir Directories="$(OutputPath)"  Condition="!Exists('$(OutputPath)')" /> -->
+    <!-- Run the advanced installer on the .aip project - rebuild -->
+    <Exec Command="&quot;$(AiComPath)&quot; /rebuild &quot;%(Compile.Identity)&quot; $(AdvinstCmdLine)" />
+  </Target>
+  <Target Name="Clean">
+  </Target>
+  <Target Name="ResolveAssemblyReferences">
+  </Target>
+</Project>
