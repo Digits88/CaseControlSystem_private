@@ -46,7 +46,6 @@ namespace CaseControl
                                                                                         [ClientGovtClaims-Other] AS other ON other.FileID = st.FileID
                                                                 WHERE     (st.FileID = {0})";
 
-
         internal const string ADD_NEW_EVIDENCE_QUERY = "INSERT INTO ClientEvidences(FileID,Evidence) VALUES({0},'{1}')";
         internal const string EDIT_EVIDENCE_QUERY = "UPDATE ClientEvidences SET Evidence = '{0}' WHERE FileID = {1} AND Evidence = '{2}'";
         internal const string DELETE_EVIDENCE_QUERY = "DELETE ClientEvidences WHERE FileID = {0} AND Evidence = '{1}'";
@@ -377,6 +376,8 @@ namespace CaseControl
         internal const string LAST_DB_BACKUP_Query = "SELECT LastBackupTakenOn LastBackupTakenOn FROM DBBackupStatus";
 
         internal const string UpdateDatabaseBackupStatus = "UpdateDatabaseBackupStatus";
+        internal const string UpdateGovtStatuteInformation = "UpdateGovtStatuteInformation";
+        internal const string GetGovtStatuteInformation = "GetGovtStatuteInformation";
         internal const string DatabaseServerName = @"localhost\SQLEXPRESS";
         internal const string DBBackup = "DBBackup";
         internal const string BackupExtension = ".bak";
@@ -521,14 +522,16 @@ namespace CaseControl
         internal const string STATUTE_ACCIDENT_DATE = "AccidentDate";
         internal const string STATUTE_COMPLAINTFILE_DATE = "ComplaintFileDate";
         internal const string STATUTE_IS_GOVT_CLAIM = "IsGovtClaim";
-        internal const string STATUTE_CITY_DENIED_DATE = "City_DeniedDate";
-        internal const string STATUTE_CITY_CLAIM_DUE_DATE = "City_ClaimDueDate";
-        internal const string STATUTE_STATE_DENIED_DATE = "State_DeniedDate";
-        internal const string STATUTE_STATE_FILED_DATE = "State_FiledDate";
-        internal const string STATUTE_COUNTY_DENIED_DATE = "county_DeniedDate";
-        internal const string STATUTE_COUNTY_FILED_DATE = "county_FiledDate";
-        internal const string STATUTE_OTHER_DENIED_DATE = "other_DeniedDate";
-        internal const string STATUTE_OTHER_FILED_DATE = "other_FiledDate";
+        internal const string STATUTE_CITY_DENIED_DATE = "CityRejectedDate";
+        internal const string STATUTE_CITY_CLAIM_DUE_DATE = "CityNextClaimDate";
+        internal const string STATUTE_STATE_DENIED_DATE = "StateRejectedDate";
+        internal const string STATUTE_STATE_FILED_DATE = "StateFiledDate";
+        internal const string STATUTE_COUNTY_DENIED_DATE = "CountyRejectedDate";
+        internal const string STATUTE_COUNTY_FILED_DATE = "CountyFiledDate";
+        internal const string STATUTE_CITYFILEDDATE = "CityFiledDate";
+        internal const string STATUTE_OTHER_DENIED_DATE = "OtherRejectedDate";
+        internal const string STATUTE_OTHER_FILED_DATE = "OtherFiledDate";
+        internal const string STATUTE_DA6MONTHSLATER = "DA6MonthsLater";
 
         // Client Billing section
         internal const string CLIENT_TRANSACTION_DETAILS_QUERY = "SELECT TransactionID, TransactionDate, Description, BillingType, GeneralFund, TrustFund, CheckNo FROM  ClientTransactionDetails WHERE FileID={0}";

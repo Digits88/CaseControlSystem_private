@@ -13,6 +13,7 @@ namespace CaseControl
         public string ComplaintFileDate { get; set; }
         public string ComplaintAfter60days { get; set; }
         public string ComplaintAfter2yrs { get; set; }
+        public string DA6MonthsLater { get; set; }
         public string ComplaintAfter3yrs { get; set; }
         public string ComplaintAfter5yrs { get; set; }
         public bool IsGovtDClaim { get; set; }

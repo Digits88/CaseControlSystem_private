@@ -4,7 +4,7 @@
         Title="Client Information" WindowState="Maximized" 
         mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="920" Width="1250" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
-    
+
     <Window.Background>
         <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
             <GradientStop Color="#FFD3D3F4" Offset="0" />
@@ -88,7 +88,7 @@
                         <ColumnDefinition Width="176" />
                         <ColumnDefinition Width="128*" />
                     </Grid.ColumnDefinitions>
-                    
+
                     <Label Content="General Section" FontWeight="Bold" FontSize="13" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Height="28" HorizontalAlignment="Left"  Name="label1" VerticalAlignment="Top" />
                     <Grid Grid.ColumnSpan="3" Grid.Row="1">
                         <Grid.RowDefinitions>
@@ -163,7 +163,7 @@
                           VerticalAlignment="Top"  Name="exdAdditionalClientInformation"  
                           FontWeight="Bold" FontSize="13" 
                           Expanded="exdAdditionalClientInformation_Expanded">
-                        <Grid Height="270" VerticalAlignment="Top">
+                    <Grid Height="270" VerticalAlignment="Top">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="30"/>
@@ -204,36 +204,36 @@
                         <Label Content="State" Grid.Row="5" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblState" VerticalAlignment="Top" />
                         <TextBox Height="23" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left"  Name="txtClientEmployerState" VerticalAlignment="Top" Width="120" />
                         <Expander Header="Spouse Information" Grid.Row="1" Grid.Column="2" Name="exdSpouseInfo"  Grid.RowSpan="8" FontWeight="Bold" FontSize="13">
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="30"/>
-                                            <RowDefinition Height="30"/>
-                                            <RowDefinition Height="30"/>
-                                            <RowDefinition Height="30"/>
-                                            <RowDefinition Height="30"/>
-                                            <RowDefinition Height="30"/>
-                                            <RowDefinition Height="30"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="95" />
-                                            <ColumnDefinition Width="129" />
-                                        </Grid.ColumnDefinitions>
-                                        <Label Content="Last Name" Grid.Row="0" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblSpouseLastName" VerticalAlignment="Top" />
-                                        <TextBox Height="23" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"  Name="txtClientSpousLastName" VerticalAlignment="Top" Width="120" />
-                                        <Label Content="First Name" Grid.Row="1" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblSpouseFirstName" VerticalAlignment="Top" />
-                                        <TextBox Height="23" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"  Name="txtClientSpousFirstName" VerticalAlignment="Top" Width="120" />
-                                        <Label Content="Spouse Occupation" Grid.Row="2" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblClientSpousOccupation" VerticalAlignment="Top" />
-                                        <TextBox Height="23" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left"  Name="txtClientSpousOccupation" VerticalAlignment="Top" Width="120" />
-                                        <Label Content="Employer" Grid.Row="3" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblSpouseEmployer" VerticalAlignment="Top" />
-                                        <TextBox Height="23" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left"  Name="txtSpouseEmployer" VerticalAlignment="Top" Width="120" />
-                                        <Label Content="Address" Grid.Row="4" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblSpouseAddress" VerticalAlignment="Top" />
-                                        <TextBox Height="23" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left"  Name="txtClientSpouseEmployerAddress" VerticalAlignment="Top" Width="120" />
-                                        <Label Content="City" Grid.Row="5" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblSpouseCity" VerticalAlignment="Top" />
-                                        <TextBox Height="23" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left"  Name="txtClientSpouseEmployerCity" VerticalAlignment="Top" Width="120" />
-                                        <Label Content="State" Grid.Row="6" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblSpouseState" VerticalAlignment="Top" />
-                                        <TextBox Height="23" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left"  Name="txtClientSpouseEmployerState" VerticalAlignment="Top" Width="120" />
-                                    </Grid>
-                            </Expander>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="95" />
+                                    <ColumnDefinition Width="129" />
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Last Name" Grid.Row="0" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblSpouseLastName" VerticalAlignment="Top" />
+                                <TextBox Height="23" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"  Name="txtClientSpousLastName" VerticalAlignment="Top" Width="120" />
+                                <Label Content="First Name" Grid.Row="1" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblSpouseFirstName" VerticalAlignment="Top" />
+                                <TextBox Height="23" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"  Name="txtClientSpousFirstName" VerticalAlignment="Top" Width="120" />
+                                <Label Content="Spouse Occupation" Grid.Row="2" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblClientSpousOccupation" VerticalAlignment="Top" />
+                                <TextBox Height="23" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left"  Name="txtClientSpousOccupation" VerticalAlignment="Top" Width="120" />
+                                <Label Content="Employer" Grid.Row="3" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblSpouseEmployer" VerticalAlignment="Top" />
+                                <TextBox Height="23" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left"  Name="txtSpouseEmployer" VerticalAlignment="Top" Width="120" />
+                                <Label Content="Address" Grid.Row="4" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblSpouseAddress" VerticalAlignment="Top" />
+                                <TextBox Height="23" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left"  Name="txtClientSpouseEmployerAddress" VerticalAlignment="Top" Width="120" />
+                                <Label Content="City" Grid.Row="5" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblSpouseCity" VerticalAlignment="Top" />
+                                <TextBox Height="23" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left"  Name="txtClientSpouseEmployerCity" VerticalAlignment="Top" Width="120" />
+                                <Label Content="State" Grid.Row="6" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblSpouseState" VerticalAlignment="Top" />
+                                <TextBox Height="23" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left"  Name="txtClientSpouseEmployerState" VerticalAlignment="Top" Width="120" />
+                            </Grid>
+                        </Expander>
                     </Grid>
                 </Expander>
                 <Expander Margin="0,10,0,0" Header="Client Auto Information" DockPanel.Dock="Top"  Name="exdClientAutoInformation" FontWeight="Bold" FontSize="13">
@@ -272,7 +272,7 @@
                                 <Button Grid.Row="0" Grid.Column="1" Content="Cancel" Height="25" Width="75" Margin="0,0,0,0" HorizontalAlignment="Center" Name="btnCancelClientAutoInfo" Click="btnCancelClientAutoInfo_Click" />
                                 <Button Grid.Row="0" Grid.Column="2" Content="Save" Height="25" Width="75" Margin="0,0,0,0" HorizontalAlignment="Center" Name="btnSaveClientAutoInfo" Click="btnSaveClientAutoInfo_Click" />
                             </Grid>
-                           
+
                             <Label Content="Insurance Company" Grid.Row="1" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblInsuranceCompany" VerticalAlignment="Top" />
                             <TextBox Height="23" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"  Name="txtClientAutoInsuranceCompany" VerticalAlignment="Top" Width="120" />
                             <Label Content="Address" Grid.Row="2" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblClientAutoAddress" VerticalAlignment="Top" />
@@ -313,7 +313,7 @@
                     </Grid>
                 </Expander>
                 <Expander Margin="0,10,0,0" Header="Client Medical Insurance" DockPanel.Dock="Top"  Name="exdClientMedicalInsurance" FontWeight="Bold" FontSize="13">
-                   
+
                     <Grid >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30"/>
@@ -385,7 +385,7 @@
                                     <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
                                 <DataGrid AutoGenerateColumns="False" Grid.ColumnSpan="4" Grid.RowSpan="4" HorizontalAlignment="Left" Name="dgClientMedicalInsuranceNotes" VerticalAlignment="Top" SelectionChanged="dgClientMedicalInsuranceNotes_SelectionChanged" FontWeight="Normal" FontSize="11">
-                                    
+
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Note" Binding="{Binding Note}" Width="Auto"/>
                                         <DataGridTextColumn Header="Created Date" Binding="{Binding CreatedDate}" Width="Auto"/>
@@ -608,150 +608,59 @@
                         <Label Content="5 years Date" Grid.Row="7" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lbl5yearsDate" VerticalAlignment="Top" />
                         <Label Content="[5 years Date]" Grid.Row="7" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblStatuteComplaint5yearsDate" VerticalAlignment="Top" />
                         <CheckBox Content="Is it a Government Claim?" Grid.Row="1" Grid.Column="2" Height="16" HorizontalAlignment="Center" Name="cbIsItAGovernmentClaim" VerticalAlignment="Center" Checked="cbIsItAGovernmentClaim_Checked" Unchecked="cbIsItAGovernmentClaim_Unchecked" />
+                        
+                        <Grid Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="8" Name="gdGovtStatuteInfo" Visibility="Visible">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="120"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="6 months Statute" Grid.Row="0" Grid.Column="0" Height="28" HorizontalAlignment="Right"  Name="lbl6MonthStatute" VerticalAlignment="Top" />
+                            <DatePicker Grid.Row="0" Grid.Column="1"   Height="25" Name="dt6MonthsStatute"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+                            <Label Content="S/L 1 Yr" Grid.Row="0" Grid.Column="2" Height="28" HorizontalAlignment="Right"  Name="lblSL1Year" VerticalAlignment="Top" />
+                            <DatePicker Grid.Row="0" Grid.Column="3"  Height="25" Name="dtSL1YearDate"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+                            <Label Content="2 Yrs" Grid.Row="0" Grid.Column="4" Height="28" HorizontalAlignment="Right"  Name="lblSL2Year" VerticalAlignment="Top" />
+                            <DatePicker Grid.Row="0" Grid.Column="5"  Height="25" Name="dtSL2YearDate"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+                            
+                            <Label Content="City" Grid.Row="1" Grid.Column="0" Height="28" HorizontalAlignment="Right"  Name="lblCityStatute" VerticalAlignment="Top" />
+                            <DatePicker Grid.Row="1" Grid.Column="1"  Height="25" Name="dtCityStatuteDate"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+                            <Label Content="Rejected On" Grid.Row="1" Grid.Column="2" Height="28" HorizontalAlignment="Right"  Name="lblCityRejStatute" VerticalAlignment="Top" />
+                            <DatePicker IsEnabled="False" Grid.Row="1" Grid.Column="3"  Height="25" Name="dtCityStatuteRejDate"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" SelectedDateChanged="dtCityStatuteRejDate_SelectedDateChanged" />
+                            <Label Content="6 Months" Grid.Row="1" Grid.Column="4" Height="28" HorizontalAlignment="Right"  Name="lblCity6MonthsStatute" VerticalAlignment="Top" />
+                            <DatePicker Grid.Row="1" Grid.Column="5"  Height="25" Name="dtCityStatute6MonthDate"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" IsEnabled="False" />
 
-                        <Expander Header="Govertment Claims" Grid.Row="1" Grid.Column="3" Name="exdGovertmentClaims"  Grid.RowSpan="9" FontWeight="Bold" FontSize="13">
-                            <Expander.Resources>
-                                <Style TargetType="{x:Type TextBox}">
-                                    <Setter Property="FontWeight" Value="Normal"></Setter>
-                                    <Setter Property="FontSize" Value="11"></Setter>
-                                </Style>
-                                <Style TargetType="{x:Type Label}">
-                                    <Setter Property="FontWeight" Value="Normal"></Setter>
-                                    <Setter Property="FontSize" Value="11"></Setter>
-                                </Style>
-                                <Style TargetType="{x:Type DatePicker}">
-                                    <Setter Property="FontWeight" Value="Normal"></Setter>
-                                    <Setter Property="FontSize" Value="11"></Setter>
-                                </Style>
-                            </Expander.Resources>
-                            <TabControl Height="240" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Name="tbGovernmentClaims" VerticalAlignment="Top" Width="354">
-                                <TabItem Header="City" Name="tbCity" >
-                                    <Grid >
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="170" />
-                                            <ColumnDefinition Width="170" />
-                                        </Grid.ColumnDefinitions>
-                                        <Label Content="Denied Date" Grid.Row="0" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="tbCityDeniedDate" VerticalAlignment="Top"  />
-                                        <DatePicker Height="25" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" Name="dtCityDeniedDate" VerticalAlignment="Top" Width="120" SelectedDateChanged="dtCityDeniedDate_SelectedDateChanged" />
-                                        <Label Content="Claim Due Date (+180 )" Grid.Row="1" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lbltbCityClaimDueDate" VerticalAlignment="Top" />
-                                        <Label Content="[ +180 Denied date ]" Grid.Row="1" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="tbCityClaimDueDate" VerticalAlignment="Top" />
-                                        <Label Content="Filed Date" Height="28" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0" Name="tbCityFiledDate" VerticalAlignment="Top" />
-                                        <DatePicker Height="25" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1" Name="dtCityFileDate" VerticalAlignment="Top" Width="120" SelectedDateChanged="dtCityFileDate_SelectedDateChanged" />
-                                        <Label Content="+60 days from Filed Date" Grid.Row="3" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lbl60DaysFromCityFiledDate" VerticalAlignment="Top" />
-                                        <Label Content="[+60 days Filed Date]" Grid.Row="3" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblCity60DaysFromFiledDate" VerticalAlignment="Top" />
-                                        <Label Content="2 years Date" Grid.Row="4" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblGCity2yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="[2 years Date]" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left"  Name="lblCity2yearsDate" Margin="0,0,0,22" Grid.RowSpan="2" />
-                                        <Label Content="3 years Date" Grid.Row="5" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblGCity3yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="[3 years Date]" Grid.Row="5" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblCity3yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="5 years Date" Grid.Row="6" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblGCity5yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="[5 years Date]" Grid.Row="6" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblCity5yearsDate" VerticalAlignment="Top" />
-                                    </Grid>
-                                </TabItem>
-                                <TabItem Header="County" Name="tbCounty">
-                                    <Grid >
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="170" />
-                                            <ColumnDefinition Width="170" />
-                                        </Grid.ColumnDefinitions>
-                                        <Label Content="Denied Date" Grid.Row="0" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="tbCountyDeniedDate" VerticalAlignment="Top"  />
-                                        <DatePicker Height="25" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" Name="dtCountyDeniedDate" VerticalAlignment="Top" Width="120" SelectedDateChanged="dtCountyDeniedDate_SelectedDateChanged" />
-                                        <Label Content="Claim Due Date (+180 )" Grid.Row="1" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lbltbCountyClaimDueDate" VerticalAlignment="Top" />
-                                        <Label Content="[ +180 Denied date ]" Grid.Row="1" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="tbCountyClaimDueDate" VerticalAlignment="Top" />
-                                        <Label Content="Filed Date" Height="28" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0" Name="tbCountyFiledDate" VerticalAlignment="Top" />
-                                        <DatePicker Height="25" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1" Name="dtCountyFileDate" VerticalAlignment="Top" Width="120" SelectedDateChanged="dtCountyFileDate_SelectedDateChanged" />
-                                        <Label Content="+60 days from Filed Date" Grid.Row="3" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lbl60DaysFromCountyFiledDate" VerticalAlignment="Top" />
-                                        <Label Content="[+60 days Filed Date]" Grid.Row="3" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblCounty60DaysFromFiledDate" VerticalAlignment="Top" />
-                                        <Label Content="2 years Date" Grid.Row="4" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblGCounty2yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="[2 years Date]" Grid.Row="4" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblCounty2yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="3 years Date" Grid.Row="5" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblGCounty3yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="[3 years Date]" Grid.Row="5" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblCounty3yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="5 years Date" Grid.Row="6" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblGCounty5yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="[5 years Date]" Grid.Row="6" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblCounty5yearsDate" VerticalAlignment="Top" />
-                                    </Grid>
-                                </TabItem>
-                                <TabItem Header="State" Name="tbState">
-                                    <Grid >
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="170" />
-                                            <ColumnDefinition Width="170" />
-                                        </Grid.ColumnDefinitions>
-                                        <Label Content="Denied Date" Grid.Row="0" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="tbStateDeniedDate" VerticalAlignment="Top"  />
-                                        <DatePicker Height="25" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" Name="dtStateDeniedDate" VerticalAlignment="Top" Width="120" SelectedDateChanged="dtStateDeniedDate_SelectedDateChanged" />
-                                        <Label Content="Claim Due Date (+180 )" Grid.Row="1" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lbltbStateClaimDueDate" VerticalAlignment="Top" />
-                                        <Label Content="[ +180 Denied date ]" Grid.Row="1" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="tbStateClaimDueDate" VerticalAlignment="Top" />
-                                        <Label Content="Filed Date" Height="28" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0" Name="tbStateFiledDate" VerticalAlignment="Top" />
-                                        <DatePicker Height="25" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1" Name="dtStateFileDate" VerticalAlignment="Top" Width="120" SelectedDateChanged="dtStateFileDate_SelectedDateChanged" />
-                                        <Label Content="+60 days from Filed Date" Grid.Row="3" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lbl60DaysFromStateFiledDate" VerticalAlignment="Top" />
-                                        <Label Content="[+60 days Filed Date]" Grid.Row="3" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblState60DaysFromFiledDate" VerticalAlignment="Top" />
-                                        <Label Content="2 years Date" Grid.Row="4" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblGState2yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="[2 years Date]" Grid.Row="4" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblState2yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="3 years Date" Grid.Row="5" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblGState3yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="[3 years Date]" Grid.Row="5" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblState3yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="5 years Date" Grid.Row="6" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblGState5yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="[5 years Date]" Grid.Row="6" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblState5yearsDate" VerticalAlignment="Top" />
-                                    </Grid>
-                                </TabItem>
-                                <TabItem Header="Other" Name="tbOther">
-                                    <Grid >
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                            <RowDefinition Height="25"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="170" />
-                                            <ColumnDefinition Width="170" />
-                                        </Grid.ColumnDefinitions>
-                                        <Label Content="Denied Date" Grid.Row="0" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="tbOtherDeniedDate" VerticalAlignment="Top"  />
-                                        <DatePicker Height="25" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" Name="dtOtherDeniedDate" VerticalAlignment="Top" Width="120" SelectedDateChanged="dtOtherDeniedDate_SelectedDateChanged" />
-                                        <Label Content="Claim Due Date (+180 )" Grid.Row="1" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lbltbOtherClaimDueDate" VerticalAlignment="Top" />
-                                        <Label Content="[ +180 Denied date ]" Grid.Row="1" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="tbOtherClaimDueDate" VerticalAlignment="Top" />
-                                        <Label Content="Filed Date" Height="28" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0" Name="tbOtherFiledDate" VerticalAlignment="Top" />
-                                        <DatePicker Height="25" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1" Name="dtOtherFileDate" VerticalAlignment="Top" Width="120" SelectedDateChanged="dtOtherFileDate_SelectedDateChanged" />
-                                        <Label Content="+60 days from Filed Date" Grid.Row="3" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lbl60DaysFromOtherFiledDate" VerticalAlignment="Top" />
-                                        <Label Content="[+60 days Filed Date]" Grid.Row="3" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblOther60DaysFromFiledDate" VerticalAlignment="Top" />
-                                        <Label Content="2 years Date" Grid.Row="4" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblGOther2yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="[2 years Date]" Grid.Row="4" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblOther2yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="3 years Date" Grid.Row="5" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblGOther3yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="[3 years Date]" Grid.Row="5" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblOther3yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="5 years Date" Grid.Row="6" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblGOther5yearsDate" VerticalAlignment="Top" />
-                                        <Label Content="[5 years Date]" Grid.Row="6" Grid.Column="1" Height="28" HorizontalAlignment="Left"  Name="lblOther5yearsDate" VerticalAlignment="Top" />
-                                    </Grid>
-                                </TabItem>
-                            </TabControl>
-                        </Expander>
+                            <Label Content="County" Grid.Row="2" Grid.Column="0" Height="28" HorizontalAlignment="Right"  Name="lblCountyStatute" VerticalAlignment="Top" />
+                            <DatePicker IsEnabled="False" Grid.Row="2" Grid.Column="1"  Height="25" Name="dtCountyStatuteDate"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" />
+                            <Label Content="Rejected On" Grid.Row="2" Grid.Column="2" Height="28" HorizontalAlignment="Right"  Name="lblCountyRejStatute" VerticalAlignment="Top" />
+                            <DatePicker IsEnabled="False" Grid.Row="2" Grid.Column="3"  Height="25" Name="dtCountyStatuteRejDate"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" SelectedDateChanged="dtCountyStatuteRejDate_SelectedDateChanged" />
+                            <Label Content="6 Months" Grid.Row="2" Grid.Column="4" Height="28" HorizontalAlignment="Right"  Name="lblCounty6MonthsStatute" VerticalAlignment="Top" />
+                            <DatePicker Grid.Row="2" Grid.Column="5"  Height="25" Name="dtCountyStatute6MonthDate"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
 
+                            <Label Content="State" Grid.Row="3" Grid.Column="0" Height="28" HorizontalAlignment="Right"  Name="lblStateStatute" VerticalAlignment="Top" />
+                            <DatePicker IsEnabled="False" Grid.Row="3" Grid.Column="1"  Height="25" Name="dtStateStatuteDate"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" />
+                            <Label Content="Rejected On" Grid.Row="3" Grid.Column="2" Height="28" HorizontalAlignment="Right"  Name="lblStateRejStatute" VerticalAlignment="Top" />
+                            <DatePicker IsEnabled="False" Grid.Row="3" Grid.Column="3"  Height="25" Name="dtStateStatuteRejDate"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" SelectedDateChanged="dtStateStatuteRejDate_SelectedDateChanged_1" />
+                            <Label Content="6 Months" Grid.Row="3" Grid.Column="4" Height="28" HorizontalAlignment="Right"  Name="lblState6MonthsStatute" VerticalAlignment="Top" />
+                            <DatePicker Grid.Row="3" Grid.Column="5"  Height="25" Name="dtStateStatute6MonthDate"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+
+                            <Label Content="Other" Grid.Row="4" Grid.Column="0" Height="28" HorizontalAlignment="Right"  Name="lblOtherStatute" VerticalAlignment="Top" />
+                            <DatePicker IsEnabled="False" Grid.Row="4" Grid.Column="1"  Height="25" Name="dtOtherStatuteDate"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" />
+                            <Label Content="Rejected On" Grid.Row="4" Grid.Column="2" Height="28" HorizontalAlignment="Right"  Name="lblOtherRejStatute" VerticalAlignment="Top" />
+                            <DatePicker IsEnabled="False" Grid.Row="4" Grid.Column="3"  Height="25" Name="dtOtherStatuteRejDate"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" SelectedDateChanged="dtOtherStatuteRejDate_SelectedDateChanged" />
+                            <Label Content="6 Months" Grid.Row="4" Grid.Column="4" Height="28" HorizontalAlignment="Right"  Name="lblOther6MonthsStatute" VerticalAlignment="Top" />
+                            <DatePicker Grid.Row="4" Grid.Column="5"  Height="25" Name="dtOtherStatute6MonthDate"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" IsEnabled="False"/>
+                        </Grid>
                     </Grid>
                 </Expander>
                 <Expander Margin="0,10,0,0" Header="Court Information" DockPanel.Dock="Top"  Name="exdCourtInformation" FontWeight="Bold" FontSize="13">
@@ -816,7 +725,7 @@
                             <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
                         <DataGrid AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="4" HorizontalAlignment="Left" Name="dgMiscNotes" VerticalAlignment="Top" SelectionChanged="dgMiscNotes_SelectionChanged" FontSize="11" FontWeight="Normal" Height="109" Margin="5,5,0,0">
-                        
+
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Note" Binding="{Binding NoteNumber}" Width="Auto"/>
                                 <DataGridTextColumn Header="Created Date" Binding="{Binding CreatedDate}" Width="Auto"/>
@@ -849,7 +758,7 @@
                             </Grid.ColumnDefinitions>
                             <Button Grid.Row="0" Grid.Column="0" Content="Edit Section" Height="25" Width="75" Margin="0,0,0,0" HorizontalAlignment="Center" Name="btnEditMiscNoteInfoSection" Click="btnEditMiscNoteInfoSection_Click" />
                             <Button Grid.Row="0" Grid.Column="1" Content="Cancel" Height="25" Width="75" Margin="0,0,0,0" HorizontalAlignment="Center" Name="btnCancelMiscNoteInfoSection" Click="btnCancelMiscNoteInfoSection_Click" />
-                            
+
                         </Grid>
                         <TextBox Height="23" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left"  Name="txtMiscNoteName" IsReadOnly="True" VerticalAlignment="Top" Width="100" Text="Note" />
                         <DatePicker Height="23" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1" Name="dtMiscNoteDate" IsEnabled="False" VerticalAlignment="Top" Width="100" />

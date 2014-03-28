@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace CaseControl
 {
@@ -111,7 +112,7 @@ namespace CaseControl
                 if (false == isClientIDExists)
                 {
                     newclientID = DBHelper.GetScalarValue(Constants.NEXT_CLIENT_ID_FROM_CLIENTFILEMASTER_QUERY).ToString();
-                    query = string.Format(Constants.INSERT_CLIENT_MASTER_QUERY, generalInfo.FirstName, generalInfo.LastName, "true", generalInfo.ClientCreatedOn,newclientID);
+                    query = string.Format(Constants.INSERT_CLIENT_MASTER_QUERY, generalInfo.FirstName, generalInfo.LastName, "true", generalInfo.ClientCreatedOn, newclientID);
                     //Helper.LogMessage("ClientID is already present. Using new from ClientFileMaster:" + newclientID);
                     //Helper.LogMessage("Save new client Query: " + query);
                 }
@@ -572,6 +573,106 @@ namespace CaseControl
                 }
 
             }
+        }
+
+        internal static void UpdateStatuteInformationSummary(StatuteInformation statuteInfo, string fileID)
+        {
+            try
+            {
+                SqlParameter pFileID = new SqlParameter();
+                pFileID.ParameterName = "@FileID";
+                pFileID.Value = fileID;
+
+                SqlParameter pDA6MonthsLater = new SqlParameter();
+                pDA6MonthsLater.ParameterName = "@DA6MonthsLater";
+                pDA6MonthsLater.Value = statuteInfo.DA6MonthsLater;
+
+                SqlParameter pSL1YearLater = new SqlParameter();
+                pSL1YearLater.ParameterName = "@SL1YearLater";
+                pSL1YearLater.Value = statuteInfo.AccDateAfter1yr;
+
+                SqlParameter pSL2YearLater = new SqlParameter();
+                pSL2YearLater.ParameterName = "@SL2YearLater";
+                pSL2YearLater.Value = statuteInfo.AccDateAfter2yr;
+
+                SqlParameter pCityFiledDate = new SqlParameter();
+                pCityFiledDate.ParameterName = "@CityFiledDate";
+                pCityFiledDate.Value = statuteInfo.CityClaim.FiledDate;
+
+                SqlParameter pCityRejectedDate = new SqlParameter();
+                pCityRejectedDate.ParameterName = "@CityRejectedDate";
+                pCityRejectedDate.Value = statuteInfo.CityClaim.DeniedDate;
+
+                SqlParameter pCityNextClaimDate = new SqlParameter();
+                pCityNextClaimDate.ParameterName = "@CityNextClaimDate";
+                pCityNextClaimDate.Value = statuteInfo.CityClaim.ClaimDueDate;
+
+                SqlParameter pCountyFiledDate = new SqlParameter();
+                pCountyFiledDate.ParameterName = "@CountyFiledDate";
+                pCountyFiledDate.Value = statuteInfo.CountyClaim.FiledDate;
+
+                SqlParameter pCountyRejectedDate = new SqlParameter();
+                pCountyRejectedDate.ParameterName = "@CountyRejectedDate";
+                pCountyRejectedDate.Value = statuteInfo.CountyClaim.DeniedDate;
+
+                SqlParameter pCountyNextClaimDate = new SqlParameter();
+                pCountyNextClaimDate.ParameterName = "@CountyNextClaimDate";
+                pCountyNextClaimDate.Value = statuteInfo.CountyClaim.ClaimDueDate;
+
+                SqlParameter pStateFiledDate = new SqlParameter();
+                pStateFiledDate.ParameterName = "@StateFiledDate";
+                pStateFiledDate.Value = statuteInfo.StateClaim.FiledDate;
+
+                SqlParameter pStateRejectedDate = new SqlParameter();
+                pStateRejectedDate.ParameterName = "@StateRejectedDate";
+                pStateRejectedDate.Value = statuteInfo.StateClaim.DeniedDate;
+
+                SqlParameter pStateNextClaimDate = new SqlParameter();
+                pStateNextClaimDate.ParameterName = "@StateNextClaimDate";
+                pStateNextClaimDate.Value = statuteInfo.StateClaim.ClaimDueDate;
+
+                SqlParameter pOtherFiledDate = new SqlParameter();
+                pOtherFiledDate.ParameterName = "@OtherFiledDate";
+                pOtherFiledDate.Value = statuteInfo.OtherClaim.FiledDate;
+
+                SqlParameter pOtherRejectedDate = new SqlParameter();
+                pOtherRejectedDate.ParameterName = "@OtherRejectedDate";
+                pOtherRejectedDate.Value = statuteInfo.OtherClaim.DeniedDate;
+
+                SqlParameter pOtherNextClaimDate = new SqlParameter();
+                pOtherNextClaimDate.ParameterName = "@OtherNextClaimDate";
+                pOtherNextClaimDate.Value = statuteInfo.OtherClaim.ClaimDueDate;
+
+                DBHelper.ExecuteStoredProcedure(Constants.UpdateGovtStatuteInformation, pFileID, pDA6MonthsLater, pSL1YearLater,pSL2YearLater, pCityFiledDate, pCityRejectedDate,
+                        pCityNextClaimDate,pCountyFiledDate, pCountyRejectedDate, pCountyNextClaimDate, pStateFiledDate, pStateRejectedDate, pStateNextClaimDate,
+                        pOtherFiledDate, pOtherRejectedDate, pOtherNextClaimDate);
+            }
+            catch (Exception ex)
+            {
+                Helper.LogException(ex);
+            }
+        }
+
+        internal static DataSet GetStatuteInformationSummary(string fileID)
+        {
+            DataSet result = new DataSet();
+            try
+            {
+                SqlParameter pFileID = new SqlParameter();
+                pFileID.ParameterName = "@FileID";
+                pFileID.Value = fileID;
+
+                 result = DBHelper.ExecuteStoredProcedure(Constants.GetGovtStatuteInformation, pFileID);
+                if(result != null && result.Tables.Count > 0 && result.Tables[0].Rows.Count>0)
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Helper.LogException(ex);
+            }
+            return result;
         }
 
         internal static bool IsFileNoAlreadyPresent(string fileID)

@@ -622,89 +622,152 @@ namespace CaseControl
         {
             try
             {
-                var result = DBHelper.GetSelectDataSet(string.Format(Constants.CLIENT_STATUTE_INFORMATION, selectedClient.FileID));
+                var result = BusinessLogic.GetStatuteInformationSummary(selectedClient.FileID);
+
                 if (result == null || result.Tables[0].Rows.Count == 0)
                 {
-
+                    return;
                 }
                 else
                 {
                     dtStatuteComplaintFiledDate.SelectedDate = DateTime.Parse(result.Tables[0].Rows[0][Constants.STATUTE_COMPLAINTFILE_DATE].ToString());
                     cbIsItAGovernmentClaim.IsChecked = Boolean.Parse(result.Tables[0].Rows[0][Constants.STATUTE_IS_GOVT_CLAIM].ToString());
 
-                    string tempValue = result.Tables[0].Rows[0][Constants.STATUTE_CITY_DENIED_DATE].ToString();
+                    string tempValue = result.Tables[0].Rows[0][Constants.STATUTE_DA6MONTHSLATER].ToString();
                     if (!string.IsNullOrEmpty(tempValue))
                     {
-                        dtCityDeniedDate.SelectedDate = DateTime.Parse(tempValue);
+                        dt6MonthsStatute.SelectedDate = DateTime.Parse(tempValue);
                     }
-                    else
-                    {
-                        tempValue = string.Empty;
-                    }
-                    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_CITY_CLAIM_DUE_DATE].ToString();
+
+                    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_CITYFILEDDATE].ToString();
                     if (!string.IsNullOrEmpty(tempValue))
                     {
-                        dtCityFileDate.SelectedDate = DateTime.Parse(tempValue);
+                        dtCityStatuteDate.SelectedDate = DateTime.Parse(tempValue);
                     }
-                    else
-                    {
-                        tempValue = string.Empty;
-                    }
-                    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_COUNTY_DENIED_DATE].ToString();
+                    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_CITY_DENIED_DATE].ToString();
                     if (!string.IsNullOrEmpty(tempValue))
                     {
-                        dtCountyDeniedDate.SelectedDate = DateTime.Parse(tempValue);
-                    }
-                    else
-                    {
-                        tempValue = string.Empty;
+                        dtCityStatuteRejDate.SelectedDate = DateTime.Parse(tempValue);
                     }
                     tempValue = result.Tables[0].Rows[0][Constants.STATUTE_COUNTY_FILED_DATE].ToString();
                     if (!string.IsNullOrEmpty(tempValue))
                     {
-                        dtCountyFileDate.SelectedDate = DateTime.Parse(tempValue);
+                        dtCountyStatuteDate.SelectedDate = DateTime.Parse(tempValue);
                     }
-                    else
-                    {
-                        tempValue = string.Empty;
-                    }
-                    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_STATE_DENIED_DATE].ToString();
+                    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_COUNTY_DENIED_DATE].ToString();
                     if (!string.IsNullOrEmpty(tempValue))
                     {
-                        dtStateDeniedDate.SelectedDate = DateTime.Parse(tempValue);
-                    }
-                    else
-                    {
-                        tempValue = string.Empty;
+                        dtCountyStatuteRejDate.SelectedDate = DateTime.Parse(tempValue);
                     }
                     tempValue = result.Tables[0].Rows[0][Constants.STATUTE_STATE_FILED_DATE].ToString();
                     if (!string.IsNullOrEmpty(tempValue))
                     {
-                        dtStateFileDate.SelectedDate = DateTime.Parse(tempValue);
+                        dtStateStatuteDate.SelectedDate = DateTime.Parse(tempValue);
                     }
-                    else
-                    {
-                        tempValue = string.Empty;
-                    }
-                    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_OTHER_DENIED_DATE].ToString();
+                    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_STATE_DENIED_DATE].ToString();
                     if (!string.IsNullOrEmpty(tempValue))
                     {
-                        dtOtherDeniedDate.SelectedDate = DateTime.Parse(tempValue);
-                    }
-                    else
-                    {
-                        tempValue = string.Empty;
+                        dtStateStatuteRejDate.SelectedDate = DateTime.Parse(tempValue);
                     }
                     tempValue = result.Tables[0].Rows[0][Constants.STATUTE_OTHER_FILED_DATE].ToString();
                     if (!string.IsNullOrEmpty(tempValue))
                     {
-                        dtOtherFileDate.SelectedDate = DateTime.Parse(tempValue);
+                        dtOtherStatuteDate.SelectedDate = DateTime.Parse(tempValue);
                     }
-                    else
+                    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_OTHER_DENIED_DATE].ToString();
+                    if (!string.IsNullOrEmpty(tempValue))
                     {
-                        tempValue = string.Empty;
+                        dtOtherStatuteRejDate.SelectedDate = DateTime.Parse(tempValue);
                     }
+                    
                 }
+                #region Old Code
+
+                //var result = DBHelper.GetSelectDataSet(string.Format(Constants.CLIENT_STATUTE_INFORMATION, selectedClient.FileID));
+                //if (result == null || result.Tables[0].Rows.Count == 0)
+                //{
+
+                //}
+                //else
+                //{
+                //    dtStatuteComplaintFiledDate.SelectedDate = DateTime.Parse(result.Tables[0].Rows[0][Constants.STATUTE_COMPLAINTFILE_DATE].ToString());
+                //    cbIsItAGovernmentClaim.IsChecked = Boolean.Parse(result.Tables[0].Rows[0][Constants.STATUTE_IS_GOVT_CLAIM].ToString());
+
+                //    string tempValue = result.Tables[0].Rows[0][Constants.STATUTE_CITY_DENIED_DATE].ToString();
+                //    if (!string.IsNullOrEmpty(tempValue))
+                //    {
+                //        dtCityStatuteDate.SelectedDate = DateTime.Parse(tempValue);
+                //    }
+                //    else
+                //    {
+                //        tempValue = string.Empty;
+                //    }
+                //    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_CITY_CLAIM_DUE_DATE].ToString();
+                //    if (!string.IsNullOrEmpty(tempValue))
+                //    {
+                //        dtCityStatuteDate.SelectedDate = DateTime.Parse(tempValue);
+                //    }
+                //    else
+                //    {
+                //        tempValue = string.Empty;
+                //    }
+                //    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_COUNTY_DENIED_DATE].ToString();
+                //    if (!string.IsNullOrEmpty(tempValue))
+                //    {
+                //        dtCountyStatuteDate.SelectedDate = DateTime.Parse(tempValue);
+                //    }
+                //    else
+                //    {
+                //        tempValue = string.Empty;
+                //    }
+                //    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_COUNTY_FILED_DATE].ToString();
+                //    if (!string.IsNullOrEmpty(tempValue))
+                //    {
+                //        dtCountyStatuteDate.SelectedDate = DateTime.Parse(tempValue);
+                //    }
+                //    else
+                //    {
+                //        tempValue = string.Empty;
+                //    }
+                //    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_STATE_DENIED_DATE].ToString();
+                //    if (!string.IsNullOrEmpty(tempValue))
+                //    {
+                //        dtStateStatuteRejDate.SelectedDate = DateTime.Parse(tempValue);
+                //    }
+                //    else
+                //    {
+                //        tempValue = string.Empty;
+                //    }
+                //    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_STATE_FILED_DATE].ToString();
+                //    if (!string.IsNullOrEmpty(tempValue))
+                //    {
+                //        dtStateStatuteDate.SelectedDate = DateTime.Parse(tempValue);
+                //    }
+                //    else
+                //    {
+                //        tempValue = string.Empty;
+                //    }
+                //    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_OTHER_DENIED_DATE].ToString();
+                //    if (!string.IsNullOrEmpty(tempValue))
+                //    {
+                //        dtOtherStatuteDate.SelectedDate = DateTime.Parse(tempValue);
+                //    }
+                //    else
+                //    {
+                //        tempValue = string.Empty;
+                //    }
+                //    tempValue = result.Tables[0].Rows[0][Constants.STATUTE_OTHER_FILED_DATE].ToString();
+                //    if (!string.IsNullOrEmpty(tempValue))
+                //    {
+                //        dtOtherStatuteDate.SelectedDate = DateTime.Parse(tempValue);
+                //    }
+                //    else
+                //    {
+                //        tempValue = string.Empty;
+                //    }
+                //}
+                #endregion
+
             }
             catch (Exception ex)
             {
@@ -1117,14 +1180,14 @@ namespace CaseControl
             try
             {
                 if (dtStatuteComplaintFiledDate.SelectedDate == null &&
-                    dtCityDeniedDate.SelectedDate == null &&
-                    dtCityFileDate.SelectedDate == null &&
-                    dtCountyDeniedDate.SelectedDate == null &&
-                    dtCountyFileDate.SelectedDate == null &&
-                    dtStateDeniedDate.SelectedDate == null &&
-                    dtStateFileDate.SelectedDate == null &&
-                    dtOtherDeniedDate.SelectedDate == null &&
-                    dtOtherFileDate.SelectedDate == null)
+                    dtCityStatuteDate.SelectedDate == null &&
+                    dtCityStatuteDate.SelectedDate == null &&
+                    dtCountyStatuteDate.SelectedDate == null &&
+                    dtCountyStatuteDate.SelectedDate == null &&
+                    dtStateStatuteRejDate.SelectedDate == null &&
+                    dtStateStatuteDate.SelectedDate == null &&
+                    dtOtherStatuteDate.SelectedDate == null &&
+                    dtOtherStatuteDate.SelectedDate == null)
                 {
                     return;
                 }
@@ -1146,68 +1209,68 @@ namespace CaseControl
                 statuteInfo.IsGovtDClaim = cbIsItAGovernmentClaim.IsChecked.Value;
                 if (statuteInfo.IsGovtDClaim)
                 {
-                    if (dtCityDeniedDate.SelectedDate != null)
+                    if (dtCityStatuteDate.SelectedDate != null)
                     {
                         statuteInfo.CityClaim = new GovertmentClaimInformation();
-                        statuteInfo.CityClaim.DeniedDate = dtCityDeniedDate.SelectedDate.Value.ToShortDateString();
-                        statuteInfo.CityClaim.ClaimDueDate = dtCityDeniedDate.SelectedDate.Value.AddDays(180).ToShortDateString();
+                        statuteInfo.CityClaim.DeniedDate = dtCityStatuteDate.SelectedDate.Value.ToShortDateString();
+                        statuteInfo.CityClaim.ClaimDueDate = dtCityStatuteDate.SelectedDate.Value.AddDays(180).ToShortDateString();
                     }
-                    if (dtCityFileDate.SelectedDate != null)
+                    if (dtCityStatuteDate.SelectedDate != null)
                     {
                         statuteInfo.CityClaim = statuteInfo.CityClaim ?? new GovertmentClaimInformation();
-                        statuteInfo.CityClaim.FiledDate = dtCityFileDate.SelectedDate.Value.ToShortDateString();
-                        statuteInfo.CityClaim.FiledDateAfter60Days = dtCityFileDate.SelectedDate.Value.AddDays(60).ToShortDateString();
-                        statuteInfo.CityClaim.FiledDateAfter2yrs = dtCityFileDate.SelectedDate.Value.AddYears(2).ToShortDateString();
-                        statuteInfo.CityClaim.FiledDateAfter3yrs = dtCityFileDate.SelectedDate.Value.AddYears(3).ToShortDateString();
-                        statuteInfo.CityClaim.FiledDateAfter5yrs = dtCityFileDate.SelectedDate.Value.AddYears(5).ToShortDateString();
+                        statuteInfo.CityClaim.FiledDate = dtCityStatuteDate.SelectedDate.Value.ToShortDateString();
+                        statuteInfo.CityClaim.FiledDateAfter60Days = dtCityStatuteDate.SelectedDate.Value.AddDays(60).ToShortDateString();
+                        statuteInfo.CityClaim.FiledDateAfter2yrs = dtCityStatuteDate.SelectedDate.Value.AddYears(2).ToShortDateString();
+                        statuteInfo.CityClaim.FiledDateAfter3yrs = dtCityStatuteDate.SelectedDate.Value.AddYears(3).ToShortDateString();
+                        statuteInfo.CityClaim.FiledDateAfter5yrs = dtCityStatuteDate.SelectedDate.Value.AddYears(5).ToShortDateString();
                     }
 
-                    if (dtCountyDeniedDate.SelectedDate != null)
+                    if (dtCountyStatuteDate.SelectedDate != null)
                     {
                         statuteInfo.CountyClaim = new GovertmentClaimInformation();
-                        statuteInfo.CountyClaim.DeniedDate = dtCountyDeniedDate.SelectedDate.Value.ToShortDateString();
-                        statuteInfo.CountyClaim.ClaimDueDate = dtCountyDeniedDate.SelectedDate.Value.AddDays(180).ToShortDateString();
+                        statuteInfo.CountyClaim.DeniedDate = dtCountyStatuteDate.SelectedDate.Value.ToShortDateString();
+                        statuteInfo.CountyClaim.ClaimDueDate = dtCountyStatuteDate.SelectedDate.Value.AddDays(180).ToShortDateString();
                     }
-                    if (dtCountyFileDate.SelectedDate != null)
+                    if (dtCountyStatuteDate.SelectedDate != null)
                     {
                         statuteInfo.CountyClaim = statuteInfo.CountyClaim ?? new GovertmentClaimInformation();
-                        statuteInfo.CountyClaim.FiledDate = dtCountyFileDate.SelectedDate.Value.ToShortDateString();
-                        statuteInfo.CountyClaim.FiledDateAfter60Days = dtCountyFileDate.SelectedDate.Value.AddDays(60).ToShortDateString();
-                        statuteInfo.CountyClaim.FiledDateAfter2yrs = dtCountyFileDate.SelectedDate.Value.AddYears(2).ToShortDateString();
-                        statuteInfo.CountyClaim.FiledDateAfter3yrs = dtCountyFileDate.SelectedDate.Value.AddYears(3).ToShortDateString();
-                        statuteInfo.CountyClaim.FiledDateAfter5yrs = dtCountyFileDate.SelectedDate.Value.AddYears(5).ToShortDateString();
+                        statuteInfo.CountyClaim.FiledDate = dtCountyStatuteDate.SelectedDate.Value.ToShortDateString();
+                        statuteInfo.CountyClaim.FiledDateAfter60Days = dtCountyStatuteDate.SelectedDate.Value.AddDays(60).ToShortDateString();
+                        statuteInfo.CountyClaim.FiledDateAfter2yrs = dtCountyStatuteDate.SelectedDate.Value.AddYears(2).ToShortDateString();
+                        statuteInfo.CountyClaim.FiledDateAfter3yrs = dtCountyStatuteDate.SelectedDate.Value.AddYears(3).ToShortDateString();
+                        statuteInfo.CountyClaim.FiledDateAfter5yrs = dtCountyStatuteDate.SelectedDate.Value.AddYears(5).ToShortDateString();
                     }
 
-                    if (dtStateDeniedDate.SelectedDate != null)
+                    if (dtStateStatuteRejDate.SelectedDate != null)
                     {
                         statuteInfo.StateClaim = new GovertmentClaimInformation();
-                        statuteInfo.StateClaim.DeniedDate = dtStateDeniedDate.SelectedDate.Value.ToShortDateString();
-                        statuteInfo.StateClaim.ClaimDueDate = dtStateDeniedDate.SelectedDate.Value.AddDays(180).ToShortDateString();
+                        statuteInfo.StateClaim.DeniedDate = dtStateStatuteRejDate.SelectedDate.Value.ToShortDateString();
+                        statuteInfo.StateClaim.ClaimDueDate = dtStateStatuteRejDate.SelectedDate.Value.AddDays(180).ToShortDateString();
                     }
-                    if (dtStateFileDate.SelectedDate != null)
+                    if (dtStateStatuteDate.SelectedDate != null)
                     {
                         statuteInfo.StateClaim = statuteInfo.StateClaim ?? new GovertmentClaimInformation();
-                        statuteInfo.StateClaim.FiledDate = dtStateFileDate.SelectedDate.Value.ToShortDateString();
-                        statuteInfo.StateClaim.FiledDateAfter60Days = dtStateFileDate.SelectedDate.Value.AddDays(60).ToShortDateString();
-                        statuteInfo.StateClaim.FiledDateAfter2yrs = dtStateFileDate.SelectedDate.Value.AddYears(2).ToShortDateString();
-                        statuteInfo.StateClaim.FiledDateAfter3yrs = dtStateFileDate.SelectedDate.Value.AddYears(3).ToShortDateString();
-                        statuteInfo.StateClaim.FiledDateAfter5yrs = dtStateFileDate.SelectedDate.Value.AddYears(5).ToShortDateString();
+                        statuteInfo.StateClaim.FiledDate = dtStateStatuteDate.SelectedDate.Value.ToShortDateString();
+                        statuteInfo.StateClaim.FiledDateAfter60Days = dtStateStatuteDate.SelectedDate.Value.AddDays(60).ToShortDateString();
+                        statuteInfo.StateClaim.FiledDateAfter2yrs = dtStateStatuteDate.SelectedDate.Value.AddYears(2).ToShortDateString();
+                        statuteInfo.StateClaim.FiledDateAfter3yrs = dtStateStatuteDate.SelectedDate.Value.AddYears(3).ToShortDateString();
+                        statuteInfo.StateClaim.FiledDateAfter5yrs = dtStateStatuteDate.SelectedDate.Value.AddYears(5).ToShortDateString();
                     }
 
-                    if (dtOtherDeniedDate.SelectedDate != null)
+                    if (dtOtherStatuteDate.SelectedDate != null)
                     {
                         statuteInfo.OtherClaim = new GovertmentClaimInformation();
-                        statuteInfo.OtherClaim.DeniedDate = dtOtherDeniedDate.SelectedDate.Value.ToShortDateString();
-                        statuteInfo.OtherClaim.ClaimDueDate = dtOtherDeniedDate.SelectedDate.Value.AddDays(180).ToShortDateString();
+                        statuteInfo.OtherClaim.DeniedDate = dtOtherStatuteDate.SelectedDate.Value.ToShortDateString();
+                        statuteInfo.OtherClaim.ClaimDueDate = dtOtherStatuteDate.SelectedDate.Value.AddDays(180).ToShortDateString();
                     }
-                    if (dtOtherFileDate.SelectedDate != null)
+                    if (dtOtherStatuteDate.SelectedDate != null)
                     {
                         statuteInfo.OtherClaim = statuteInfo.OtherClaim ?? new GovertmentClaimInformation();
-                        statuteInfo.OtherClaim.FiledDate = dtOtherFileDate.SelectedDate.Value.ToShortDateString();
-                        statuteInfo.OtherClaim.FiledDateAfter60Days = dtOtherFileDate.SelectedDate.Value.AddDays(60).ToShortDateString();
-                        statuteInfo.OtherClaim.FiledDateAfter2yrs = dtOtherFileDate.SelectedDate.Value.AddYears(2).ToShortDateString();
-                        statuteInfo.OtherClaim.FiledDateAfter3yrs = dtOtherFileDate.SelectedDate.Value.AddYears(3).ToShortDateString();
-                        statuteInfo.OtherClaim.FiledDateAfter5yrs = dtOtherFileDate.SelectedDate.Value.AddYears(5).ToShortDateString();
+                        statuteInfo.OtherClaim.FiledDate = dtOtherStatuteDate.SelectedDate.Value.ToShortDateString();
+                        statuteInfo.OtherClaim.FiledDateAfter60Days = dtOtherStatuteDate.SelectedDate.Value.AddDays(60).ToShortDateString();
+                        statuteInfo.OtherClaim.FiledDateAfter2yrs = dtOtherStatuteDate.SelectedDate.Value.AddYears(2).ToShortDateString();
+                        statuteInfo.OtherClaim.FiledDateAfter3yrs = dtOtherStatuteDate.SelectedDate.Value.AddYears(3).ToShortDateString();
+                        statuteInfo.OtherClaim.FiledDateAfter5yrs = dtOtherStatuteDate.SelectedDate.Value.AddYears(5).ToShortDateString();
                     }
                 }
                 BusinessLogic.SaveStatuteInformation(statuteInfo, txtFileNo.Text);
@@ -1509,16 +1572,24 @@ namespace CaseControl
 
         private void UpdateStatusClientStatuteInfo(bool isEnabled)
         {
-            cbIsItAGovernmentClaim.IsChecked = false;
             dtStatuteComplaintFiledDate.IsEnabled = !isEnabled;
             dtStatuteComplaintFiledDate.IsEnabled = !isEnabled;
-            cbIsItAGovernmentClaim.IsChecked = false;
-            dtCityDeniedDate.IsEnabled = !isEnabled;
-            dtCityFileDate.IsEnabled = !isEnabled;
 
             btnCancelStatuteInfo.IsEnabled = !isEnabled;
             btnSaveStatuteInfo.IsEnabled = !isEnabled;
             btnEditStatuteInfo.IsEnabled = isEnabled;
+
+            dtCityStatuteDate.IsEnabled = !isEnabled;
+            dtCityStatuteRejDate.IsEnabled = !isEnabled;
+
+            dtCountyStatuteDate.IsEnabled = !isEnabled;
+            dtCountyStatuteRejDate.IsEnabled = !isEnabled;
+
+            dtStateStatuteDate.IsEnabled = !isEnabled;
+            dtStateStatuteRejDate.IsEnabled = !isEnabled;
+
+            dtOtherStatuteDate.IsEnabled = !isEnabled;
+            dtOtherStatuteRejDate.IsEnabled = !isEnabled;
         }
 
         private void UpdateStatusClientCourtInfo(bool isEnabled)
@@ -1695,13 +1766,9 @@ namespace CaseControl
             lbl2YrFromDateOfAccident.Content = string.Empty;
             dtStatuteComplaintFiledDate.SelectedDate = null;
             cbIsItAGovernmentClaim.IsChecked = false;
-            dtCityDeniedDate.SelectedDate = null;
-            dtCityFileDate.SelectedDate = null;
-            tbCityClaimDueDate.Content = string.Empty;
-            lblCity60DaysFromFiledDate.Content = string.Empty;
-            lblCity2yearsDate.Content = string.Empty;
-            lblCity3yearsDate.Content = string.Empty;
-            lblCity5yearsDate.Content = string.Empty;
+            dtCityStatuteDate.SelectedDate = null;
+            dtCityStatuteDate.SelectedDate = null;
+            
         }
         private void ClearClientCourtInfo()
         {
@@ -1753,7 +1820,6 @@ namespace CaseControl
                 exdSpouseInfo.IsExpanded = action;
                 exdClientInjuries.IsExpanded = action;
                 exdDefendantAttorneyInformation.IsExpanded = action;
-                exdGovertmentClaims.IsExpanded = action;
             }
             catch (Exception ex)
             {
@@ -2088,6 +2154,9 @@ namespace CaseControl
                 {
                     lbl1YrFromDateOfAccident.Content = dtAccidentDate.SelectedDate.Value.AddYears(1).ToShortDateString();
                     lbl2YrFromDateOfAccident.Content = dtAccidentDate.SelectedDate.Value.AddYears(2).ToShortDateString();
+                    dt6MonthsStatute.SelectedDate = dtAccidentDate.SelectedDate.Value.AddMonths(6);
+                    dtSL1YearDate.SelectedDate = dtAccidentDate.SelectedDate.Value.AddYears(1);
+                    dtSL2YearDate.SelectedDate = dtAccidentDate.SelectedDate.Value.AddYears(2);
                 }
             }
             catch (Exception ex)
@@ -2116,27 +2185,26 @@ namespace CaseControl
 
         private void cbIsItAGovernmentClaim_Checked(object sender, RoutedEventArgs e)
         {
-            exdGovertmentClaims.IsExpanded = true;
+            gdGovtStatuteInfo.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void cbIsItAGovernmentClaim_Unchecked(object sender, RoutedEventArgs e)
         {
-            exdGovertmentClaims.IsExpanded = false;
+            gdGovtStatuteInfo.Visibility = System.Windows.Visibility.Hidden;
         }
 
         #region Govt Claim Tab
 
-        private void dtCityDeniedDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void dtCityStatuteDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                if (dtCityDeniedDate.SelectedDate != null)
+                if (dtCityStatuteDate.SelectedDate != null)
                 {
-                    tbCityClaimDueDate.Content = dtCityDeniedDate.SelectedDate.Value.AddDays(180).ToShortDateString();
+                    
                 }
                 else
                 {
-                    tbCityClaimDueDate.Content = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -2145,24 +2213,12 @@ namespace CaseControl
             }
         }
 
-        private void dtCityFileDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+     
+
+        private void dtCountyStatuteDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                if (dtCityFileDate.SelectedDate != null)
-                {
-                    lblCity60DaysFromFiledDate.Content = dtCityFileDate.SelectedDate.Value.AddDays(60).ToShortDateString();
-                    lblCity2yearsDate.Content = dtCityFileDate.SelectedDate.Value.AddYears(2).ToShortDateString();
-                    lblCity3yearsDate.Content = dtCityFileDate.SelectedDate.Value.AddYears(3).ToShortDateString();
-                    lblCity5yearsDate.Content = dtCityFileDate.SelectedDate.Value.AddYears(5).ToShortDateString();
-                }
-                else
-                {
-                    lblCity60DaysFromFiledDate.Content = string.Empty;
-                    lblCity2yearsDate.Content = string.Empty;
-                    lblCity3yearsDate.Content = string.Empty;
-                    lblCity5yearsDate.Content = string.Empty;
-                }
             }
             catch (Exception ex)
             {
@@ -2170,11 +2226,11 @@ namespace CaseControl
             }
         }
 
-        private void dtCountyDeniedDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+     
+        private void dtStateStatuteRejDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                tbCountyClaimDueDate.Content = dtCountyDeniedDate.SelectedDate.Value.AddDays(180).ToShortDateString();
             }
             catch (Exception ex)
             {
@@ -2182,14 +2238,11 @@ namespace CaseControl
             }
         }
 
-        private void dtCountyFileDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void dtStateStatuteDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                lblCounty60DaysFromFiledDate.Content = dtCountyDeniedDate.SelectedDate.Value.AddDays(60).ToShortDateString();
-                lblCounty2yearsDate.Content = dtCountyDeniedDate.SelectedDate.Value.AddYears(2).ToShortDateString();
-                lblCounty3yearsDate.Content = dtCountyDeniedDate.SelectedDate.Value.AddYears(3).ToShortDateString();
-                lblCounty5yearsDate.Content = dtCountyDeniedDate.SelectedDate.Value.AddYears(5).ToShortDateString();
+                
             }
             catch (Exception ex)
             {
@@ -2197,59 +2250,17 @@ namespace CaseControl
             }
         }
 
-        private void dtStateDeniedDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void dtOtherStatuteDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                tbStateClaimDueDate.Content = dtStateDeniedDate.SelectedDate.Value.AddDays(180).ToShortDateString();
             }
             catch (Exception ex)
             {
                 Helper.LogException(ex);
             }
         }
-
-        private void dtStateFileDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
-                lblState60DaysFromFiledDate.Content = dtStateFileDate.SelectedDate.Value.AddDays(60).ToShortDateString();
-                lblState2yearsDate.Content = dtStateFileDate.SelectedDate.Value.AddYears(2).ToShortDateString();
-                lblState3yearsDate.Content = dtStateFileDate.SelectedDate.Value.AddYears(3).ToShortDateString();
-                lblState5yearsDate.Content = dtStateFileDate.SelectedDate.Value.AddYears(5).ToShortDateString();
-            }
-            catch (Exception ex)
-            {
-                Helper.LogException(ex);
-            }
-        }
-
-        private void dtOtherDeniedDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
-                tbOtherClaimDueDate.Content = dtOtherDeniedDate.SelectedDate.Value.AddDays(180).ToShortDateString();
-            }
-            catch (Exception ex)
-            {
-                Helper.LogException(ex);
-            }
-        }
-
-        private void dtOtherFileDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
-                lblOther60DaysFromFiledDate.Content = dtOtherFileDate.SelectedDate.Value.AddDays(60).ToShortDateString();
-                lblOther2yearsDate.Content = dtOtherFileDate.SelectedDate.Value.AddYears(2).ToShortDateString();
-                lblOther3yearsDate.Content = dtOtherFileDate.SelectedDate.Value.AddYears(3).ToShortDateString();
-                lblOther5yearsDate.Content = dtOtherFileDate.SelectedDate.Value.AddYears(5).ToShortDateString();
-            }
-            catch (Exception ex)
-            {
-                Helper.LogException(ex);
-            }
-        }
+       
         #endregion
 
         #endregion
@@ -2998,14 +3009,14 @@ namespace CaseControl
             try
             {
                 if (dtStatuteComplaintFiledDate.SelectedDate == null &&
-                        dtCityDeniedDate.SelectedDate == null &&
-                        dtCityFileDate.SelectedDate == null &&
-                        dtCountyDeniedDate.SelectedDate == null &&
-                        dtCountyFileDate.SelectedDate == null &&
-                        dtStateDeniedDate.SelectedDate == null &&
-                        dtStateFileDate.SelectedDate == null &&
-                        dtOtherDeniedDate.SelectedDate == null &&
-                        dtOtherFileDate.SelectedDate == null)
+                        dtCityStatuteDate.SelectedDate == null &&
+                        dtCityStatuteDate.SelectedDate == null &&
+                        dtCountyStatuteDate.SelectedDate == null &&
+                        dtCountyStatuteDate.SelectedDate == null &&
+                        dtStateStatuteRejDate.SelectedDate == null &&
+                        dtStateStatuteDate.SelectedDate == null &&
+                        dtOtherStatuteDate.SelectedDate == null &&
+                        dtOtherStatuteDate.SelectedDate == null)
                 {
                     return;
                 }
@@ -3025,73 +3036,103 @@ namespace CaseControl
                     statuteInfo.ComplaintAfter5yrs = dtStatuteComplaintFiledDate.SelectedDate.Value.AddYears(5).ToShortDateString();
                 }
                 statuteInfo.IsGovtDClaim = cbIsItAGovernmentClaim.IsChecked.Value;
+                #region Old Logic
+
+                //if (statuteInfo.IsGovtDClaim)
+                //{
+                //    if (dtCityStatuteDate.SelectedDate != null)
+                //    {
+                //        statuteInfo.CityClaim = new GovertmentClaimInformation();
+                //        statuteInfo.CityClaim.DeniedDate = dtCityStatuteDate.SelectedDate.Value.ToString();
+                //        statuteInfo.CityClaim.ClaimDueDate = dtCityStatuteDate.SelectedDate.Value.AddDays(180).ToString();
+                //    }
+
+                //    if (dtCountyStatuteDate.SelectedDate != null)
+                //    {
+                //        statuteInfo.CountyClaim = new GovertmentClaimInformation();
+                //        statuteInfo.CountyClaim.DeniedDate = dtCountyStatuteDate.SelectedDate.Value.ToString();
+                //        statuteInfo.CountyClaim.ClaimDueDate = dtCountyStatuteDate.SelectedDate.Value.AddDays(180).ToString();
+                //    }
+                //    if (dtCountyStatuteDate.SelectedDate != null)
+                //    {
+                //        statuteInfo.CountyClaim = statuteInfo.CountyClaim ?? new GovertmentClaimInformation();
+                //        statuteInfo.CountyClaim.FiledDate = dtCountyStatuteDate.SelectedDate.Value.ToString();
+                //        statuteInfo.CountyClaim.FiledDateAfter60Days = dtCountyStatuteDate.SelectedDate.Value.AddDays(60).ToString();
+                //        statuteInfo.CountyClaim.FiledDateAfter2yrs = dtCountyStatuteDate.SelectedDate.Value.AddYears(2).ToString();
+                //        statuteInfo.CountyClaim.FiledDateAfter3yrs = dtCountyStatuteDate.SelectedDate.Value.AddYears(3).ToString();
+                //        statuteInfo.CountyClaim.FiledDateAfter5yrs = dtCountyStatuteDate.SelectedDate.Value.AddYears(5).ToString();
+                //    }
+
+                //    if (dtStateStatuteRejDate.SelectedDate != null)
+                //    {
+                //        statuteInfo.StateClaim = new GovertmentClaimInformation();
+                //        statuteInfo.StateClaim.DeniedDate = dtStateStatuteRejDate.SelectedDate.Value.ToString();
+                //        statuteInfo.StateClaim.ClaimDueDate = dtStateStatuteRejDate.SelectedDate.Value.AddDays(180).ToString();
+                //    }
+                //    if (dtStateStatuteDate.SelectedDate != null)
+                //    {
+                //        statuteInfo.StateClaim = statuteInfo.StateClaim ?? new GovertmentClaimInformation();
+                //        statuteInfo.StateClaim.FiledDate = dtStateStatuteDate.SelectedDate.Value.ToString();
+                //        statuteInfo.StateClaim.FiledDateAfter60Days = dtStateStatuteDate.SelectedDate.Value.AddDays(60).ToString();
+                //        statuteInfo.StateClaim.FiledDateAfter2yrs = dtStateStatuteDate.SelectedDate.Value.AddYears(2).ToString();
+                //        statuteInfo.StateClaim.FiledDateAfter3yrs = dtStateStatuteDate.SelectedDate.Value.AddYears(3).ToString();
+                //        statuteInfo.StateClaim.FiledDateAfter5yrs = dtStateStatuteDate.SelectedDate.Value.AddYears(5).ToString();
+                //    }
+
+                //    if (dtOtherStatuteDate.SelectedDate != null)
+                //    {
+                //        statuteInfo.OtherClaim = new GovertmentClaimInformation();
+                //        statuteInfo.OtherClaim.DeniedDate = dtOtherStatuteDate.SelectedDate.Value.ToString();
+                //        statuteInfo.OtherClaim.ClaimDueDate = dtOtherStatuteDate.SelectedDate.Value.AddDays(180).ToString();
+                //    }
+                //    if (dtOtherStatuteDate.SelectedDate != null)
+                //    {
+                //        statuteInfo.OtherClaim = statuteInfo.OtherClaim ?? new GovertmentClaimInformation();
+                //        statuteInfo.OtherClaim.FiledDate = dtOtherStatuteDate.SelectedDate.Value.ToString();
+                //        statuteInfo.OtherClaim.FiledDateAfter60Days = dtOtherStatuteDate.SelectedDate.Value.AddDays(60).ToString();
+                //        statuteInfo.OtherClaim.FiledDateAfter2yrs = dtOtherStatuteDate.SelectedDate.Value.AddYears(2).ToString();
+                //        statuteInfo.OtherClaim.FiledDateAfter3yrs = dtOtherStatuteDate.SelectedDate.Value.AddYears(3).ToString();
+                //        statuteInfo.OtherClaim.FiledDateAfter5yrs = dtOtherStatuteDate.SelectedDate.Value.AddYears(5).ToString();
+                //    }
+                //}
+                #endregion
+
                 if (statuteInfo.IsGovtDClaim)
                 {
-                    if (dtCityDeniedDate.SelectedDate != null)
+                    if (dtCityStatuteDate.SelectedDate != null)
                     {
                         statuteInfo.CityClaim = new GovertmentClaimInformation();
-                        statuteInfo.CityClaim.DeniedDate = dtCityDeniedDate.SelectedDate.Value.ToString();
-                        statuteInfo.CityClaim.ClaimDueDate = dtCityDeniedDate.SelectedDate.Value.AddDays(180).ToString();
-                    }
-                    if (dtCityFileDate.SelectedDate != null)
-                    {
-                        statuteInfo.CityClaim = statuteInfo.CityClaim ?? new GovertmentClaimInformation();
-                        statuteInfo.CityClaim.FiledDate = dtCityFileDate.SelectedDate.Value.ToString();
-                        statuteInfo.CityClaim.FiledDateAfter60Days = dtCityFileDate.SelectedDate.Value.AddDays(60).ToString();
-                        statuteInfo.CityClaim.FiledDateAfter2yrs = dtCityFileDate.SelectedDate.Value.AddYears(2).ToString();
-                        statuteInfo.CityClaim.FiledDateAfter3yrs = dtCityFileDate.SelectedDate.Value.AddYears(3).ToString();
-                        statuteInfo.CityClaim.FiledDateAfter5yrs = dtCityFileDate.SelectedDate.Value.AddYears(5).ToString();
+                        statuteInfo.CityClaim.FiledDate= dtCityStatuteDate.SelectedDate.Value.ToString();
+                        statuteInfo.CityClaim.DeniedDate = dtCityStatuteRejDate.SelectedDate.Value != null ? dtCityStatuteRejDate.SelectedDate.Value.ToString():string.Empty;
+                        statuteInfo.CityClaim.ClaimDueDate = dtCityStatute6MonthDate.SelectedDate.Value !=null ? dtCityStatute6MonthDate.SelectedDate.Value.ToString(): string.Empty;
                     }
 
-                    if (dtCountyDeniedDate.SelectedDate != null)
+                    if (dtCountyStatuteDate.SelectedDate != null)
                     {
                         statuteInfo.CountyClaim = new GovertmentClaimInformation();
-                        statuteInfo.CountyClaim.DeniedDate = dtCountyDeniedDate.SelectedDate.Value.ToString();
-                        statuteInfo.CountyClaim.ClaimDueDate = dtCountyDeniedDate.SelectedDate.Value.AddDays(180).ToString();
+                        statuteInfo.CountyClaim.FiledDate = dtCountyStatuteDate.SelectedDate.Value.ToString();
+                        statuteInfo.CountyClaim.DeniedDate = dtCountyStatuteRejDate.SelectedDate.Value != null ? dtCountyStatuteRejDate.SelectedDate.Value.ToString() : string.Empty;
+                        statuteInfo.CountyClaim.ClaimDueDate = dtCountyStatute6MonthDate.SelectedDate.Value != null ? dtCountyStatute6MonthDate.SelectedDate.Value.ToString() : string.Empty;
                     }
-                    if (dtCountyFileDate.SelectedDate != null)
-                    {
-                        statuteInfo.CountyClaim = statuteInfo.CountyClaim ?? new GovertmentClaimInformation();
-                        statuteInfo.CountyClaim.FiledDate = dtCountyFileDate.SelectedDate.Value.ToString();
-                        statuteInfo.CountyClaim.FiledDateAfter60Days = dtCountyFileDate.SelectedDate.Value.AddDays(60).ToString();
-                        statuteInfo.CountyClaim.FiledDateAfter2yrs = dtCountyFileDate.SelectedDate.Value.AddYears(2).ToString();
-                        statuteInfo.CountyClaim.FiledDateAfter3yrs = dtCountyFileDate.SelectedDate.Value.AddYears(3).ToString();
-                        statuteInfo.CountyClaim.FiledDateAfter5yrs = dtCountyFileDate.SelectedDate.Value.AddYears(5).ToString();
-                    }
-
-                    if (dtStateDeniedDate.SelectedDate != null)
+                  
+                    if (dtStateStatuteRejDate.SelectedDate != null)
                     {
                         statuteInfo.StateClaim = new GovertmentClaimInformation();
-                        statuteInfo.StateClaim.DeniedDate = dtStateDeniedDate.SelectedDate.Value.ToString();
-                        statuteInfo.StateClaim.ClaimDueDate = dtStateDeniedDate.SelectedDate.Value.AddDays(180).ToString();
+                        statuteInfo.StateClaim.FiledDate = dtStateStatuteDate.SelectedDate.Value.ToString();
+                        statuteInfo.StateClaim.DeniedDate = dtStateStatuteRejDate.SelectedDate.Value != null ? dtStateStatuteRejDate.SelectedDate.Value.ToString() : string.Empty;
+                        statuteInfo.StateClaim.ClaimDueDate = dtStateStatute6MonthDate.SelectedDate.Value != null ? dtStateStatute6MonthDate.SelectedDate.Value.ToString() : string.Empty;
                     }
-                    if (dtStateFileDate.SelectedDate != null)
-                    {
-                        statuteInfo.StateClaim = statuteInfo.StateClaim ?? new GovertmentClaimInformation();
-                        statuteInfo.StateClaim.FiledDate = dtStateFileDate.SelectedDate.Value.ToString();
-                        statuteInfo.StateClaim.FiledDateAfter60Days = dtStateFileDate.SelectedDate.Value.AddDays(60).ToString();
-                        statuteInfo.StateClaim.FiledDateAfter2yrs = dtStateFileDate.SelectedDate.Value.AddYears(2).ToString();
-                        statuteInfo.StateClaim.FiledDateAfter3yrs = dtStateFileDate.SelectedDate.Value.AddYears(3).ToString();
-                        statuteInfo.StateClaim.FiledDateAfter5yrs = dtStateFileDate.SelectedDate.Value.AddYears(5).ToString();
-                    }
-
-                    if (dtOtherDeniedDate.SelectedDate != null)
+                  
+                    if (dtOtherStatuteDate.SelectedDate != null)
                     {
                         statuteInfo.OtherClaim = new GovertmentClaimInformation();
-                        statuteInfo.OtherClaim.DeniedDate = dtOtherDeniedDate.SelectedDate.Value.ToString();
-                        statuteInfo.OtherClaim.ClaimDueDate = dtOtherDeniedDate.SelectedDate.Value.AddDays(180).ToString();
-                    }
-                    if (dtOtherFileDate.SelectedDate != null)
-                    {
-                        statuteInfo.OtherClaim = statuteInfo.OtherClaim ?? new GovertmentClaimInformation();
-                        statuteInfo.OtherClaim.FiledDate = dtOtherFileDate.SelectedDate.Value.ToString();
-                        statuteInfo.OtherClaim.FiledDateAfter60Days = dtOtherFileDate.SelectedDate.Value.AddDays(60).ToString();
-                        statuteInfo.OtherClaim.FiledDateAfter2yrs = dtOtherFileDate.SelectedDate.Value.AddYears(2).ToString();
-                        statuteInfo.OtherClaim.FiledDateAfter3yrs = dtOtherFileDate.SelectedDate.Value.AddYears(3).ToString();
-                        statuteInfo.OtherClaim.FiledDateAfter5yrs = dtOtherFileDate.SelectedDate.Value.AddYears(5).ToString();
+                        statuteInfo.OtherClaim.FiledDate = dtOtherStatuteDate.SelectedDate.Value.ToString();
+                        statuteInfo.OtherClaim.DeniedDate = dtOtherStatuteRejDate.SelectedDate.Value != null ? dtOtherStatuteRejDate.SelectedDate.Value.ToString() : string.Empty;
+                        statuteInfo.OtherClaim.ClaimDueDate = dtOtherStatute6MonthDate.SelectedDate.Value != null ? dtOtherStatute6MonthDate.SelectedDate.Value.ToString() : string.Empty;
                     }
                 }
-                BusinessLogic.UpdateStatuteInformation(statuteInfo, txtFileNo.Text);
+                statuteInfo.DA6MonthsLater = dtAccidentDate.SelectedDate.Value.AddMonths(6).ToShortDateString();
+                BusinessLogic.UpdateStatuteInformationSummary(statuteInfo, txtFileNo.Text);
 
                 Helper.ShowInformationMessageBox("Statute Information Saved.");
                 btnSaveStatuteInfo.IsEnabled = false;
@@ -3375,5 +3416,38 @@ namespace CaseControl
         {
             RefreshClientFileList();
         }
+
+        private void dtCityStatuteRejDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dtCityStatuteRejDate.SelectedDate != null)
+            {
+                dtCityStatute6MonthDate.SelectedDate = dtCityStatuteRejDate.SelectedDate.Value.AddMonths(6);
+            }
+        }
+
+        private void dtCountyStatuteRejDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dtCountyStatuteRejDate.SelectedDate != null)
+            {
+                dtCountyStatute6MonthDate.SelectedDate = dtCountyStatuteRejDate.SelectedDate.Value.AddMonths(6);
+            }
+        }
+
+        private void dtStateStatuteRejDate_SelectedDateChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            if (dtStateStatuteRejDate.SelectedDate != null)
+            {
+                dtStateStatute6MonthDate.SelectedDate = dtStateStatuteRejDate.SelectedDate.Value.AddMonths(6);
+            }
+        }
+
+        private void dtOtherStatuteRejDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dtOtherStatuteRejDate.SelectedDate != null)
+            {
+                dtOtherStatute6MonthDate.SelectedDate = dtOtherStatuteRejDate.SelectedDate.Value.AddMonths(6);
+            }
+        }
+
     }
 }
