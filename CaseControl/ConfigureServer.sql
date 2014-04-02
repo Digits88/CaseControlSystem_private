@@ -1,3 +1,13 @@
+-- Change Server Authentication Mode to Mixed mode (last value 2 - For windows use 1)
+ USE master
+ EXEC xp_instance_regwrite 
+    N'HKEY_LOCAL_MACHINE', 
+    N'Software\Microsoft\MSSQLServer\MSSQLServer', 
+    N'LoginMode', 
+    REG_DWORD, 
+    2; -- only difference is right here. 2 is for mixed and 1 is for windows
+GO
+
 USE master
 GO
  -- CREATE DATABASE USER
@@ -464,3 +474,32 @@ BEGIN
 	INSERT INTO DBBackupStatus Values(@backupDate)
 	
 END
+
+/****** Object:  Table [dbo].[ClientGovtClaimSummary]    Script Date: 03/30/2014 13:11:12 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ClientGovtClaimSummary](
+	[FileID] [bigint] NOT NULL,
+	[DA6MonthsLater] [datetime] NULL,
+	[SL1YearLater] [datetime] NULL,
+	[SL2YearLater] [datetime] NULL,
+	[CityFiledDate] [datetime] NULL,
+	[CityRejectedDate] [datetime] NULL,
+	[CityNextClaimDate] [datetime] NULL,
+	[CountyFiledDate] [datetime] NULL,
+	[CountyRejectedDate] [datetime] NULL,
+	[CountyNextClaimDate] [datetime] NULL,
+	[StateFiledDate] [datetime] NULL,
+	[StateRejectedDate] [datetime] NULL,
+	[StateNextClaimDate] [datetime] NULL,
+	[OtherFiledDate] [datetime] NULL,
+	[OtherRejectedDate] [datetime] NULL,
+	[OtherNextClaimDate] [datetime] NULL
+) ON [PRIMARY]
+
+GO
+

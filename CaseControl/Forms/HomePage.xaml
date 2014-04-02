@@ -22,6 +22,6 @@
         <Button Content="Billing" Height="28" HorizontalAlignment="Center"  Grid.Row="2" Name="btnBilling" VerticalAlignment="Center" Width="106" Click="btnBilling_Click" />
         <Button Content="Delete Clients" Height="28" HorizontalAlignment="Center" Grid.Row="3" Name="btnDeleteClients" VerticalAlignment="Center" Width="106" Click="btnDeleteClients_Click" />
         <Button Content="Configure Database" Height="28" HorizontalAlignment="Center" Grid.Row="4" Name="btnConfigureDatase" VerticalAlignment="Center" Width="106" Click="btnConfigureDatase_Click" />
-        <Button Content="Backup Database" Height="28" HorizontalAlignment="Center" Grid.Row="4" Name="btnBackupDatabase" VerticalAlignment="Center" Width="106" Click="btnBackupDatabase_Click" />
+        <Button Content="Backup Database" Height="28" HorizontalAlignment="Center" Grid.Row="5" Name="btnBackupDatabase" VerticalAlignment="Center" Width="106" Click="btnBackupDatabase_Click" />
     </Grid>
 </Window>
